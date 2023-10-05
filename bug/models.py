@@ -18,7 +18,7 @@ class Bug(models.Model):
         ("done", "done")
     ]
     description = models.TextField(max_length=500)
-    bug_types = models.CharField(max_length=20, choices=BUG_TYPES)
+    bug_type = models.CharField(max_length=20, choices=BUG_TYPES)
     report_date = models.DateField(default=timezone.now)
     status = models.CharField(max_length=20, choices=BUG_STATUSES)
 
