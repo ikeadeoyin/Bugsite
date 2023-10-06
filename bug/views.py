@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from .models import Bug
 
 # Create your views here.
+class IndexView(generic.TemplateView):
+    template_name = "bug/index.html"
 
 class BugCreateView(generic.CreateView):
     model = Bug
@@ -20,4 +22,4 @@ class BugDetailView(generic.DetailView):
 class BugListView(generic.ListView):
     model = Bug
     context_object_name = "bug_list"
-    template_name = "bug_list.html"
+    template_name = "bug/bug_list.html"
