@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 class Bug(models.Model):
@@ -25,3 +26,9 @@ class Bug(models.Model):
     def __str__(self):
         return self.description
 
+    def clean(self):
+        # Check if bug_type and status are valid choices
+        if self.bug_type not in dict(self.BUG_TYPES):
+            raise ValidationError("Invalid bug_type choice")
+        if self.status not in dict(self.BUG_STATUSES):
+            raise ValidationError("Invalid status choice")

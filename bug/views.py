@@ -12,7 +12,7 @@ class BugCreateView(generic.CreateView):
     model = Bug
     template_name = "bug/add_bug.html"
     fields = ["description", "bug_type", "report_date", "status"]
-    success_url = reverse_lazy("bug_list")
+    success_url = reverse_lazy("bug:bug_list")
 
 class BugDetailView(generic.DetailView):
     model = Bug
