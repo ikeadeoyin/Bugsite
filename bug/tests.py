@@ -40,7 +40,7 @@ class BugModelTestCase(TestCase):
         with self.assertRaises(ValidationError):
             invalid_status.full_clean()
 
-    def test_status_choices(self):
+    def test_bug_choices(self):
         """Test that bug field accepts only valid choices."""
         invalid_status = Bug(
             description="Invalid Bug Type",
